@@ -1,0 +1,51 @@
+{
+	"name": "template",
+	"description": "owo",
+	"packageManager": "yarn@3.2.1",
+	"main": "./dist/index.js",
+	"version": "0.1.0-dev",
+	"type": "module",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/chatsift/template.git"
+	},
+	"bugs": {
+		"url": "https://github.com/chatsift/template/issues"
+	},
+	"homepage": "https://github.com/chatsift/template",
+	"imports": {},
+	"scripts": {
+		"lint": "eslint src --ext .ts && prettier --check --plugin-search-dir=. .",
+		"build": "tsc",
+		"test": "vitest run",
+		"format": "prettier --write --plugin-search-dir=. .",
+		"prepare": "is-ci || husky install",
+		"update": "yarn upgrade-interactive"
+	},
+	"engines": {
+		"node": ">=16.9.0"
+	},
+	"devDependencies": {
+		"@commitlint/cli": "^17.0.3",
+		"@commitlint/config-angular": "^17.0.3",
+		"@types/node": "^16.11.42",
+		"@typescript-eslint/eslint-plugin": "^5.30.0",
+		"@typescript-eslint/parser": "^5.30.0",
+		"c8": "^7.11.3",
+		"eslint": "^8.18.0",
+		"eslint-config-marine": "^9.4.1",
+		"eslint-config-prettier": "^8.5.0",
+		"eslint-plugin-import": "^2.26.0",
+		"husky": "^8.0.1",
+		"is-ci": "^3.0.1",
+		"prettier": "^2.7.1",
+		"prettier-eslint": "^15.0.1",
+		"typescript": "^4.7.4",
+		"vitest": "^0.16.0"
+	},
+	"dependencies": {
+		"reflect-metadata": "^0.1.13",
+		"tslib": "^2.4.0",
+		"tsyringe": "^4.7.0"
+	}
+}
