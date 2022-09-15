@@ -34,8 +34,6 @@
 		"c8": "^7.11.3",
 		"eslint": "^8.18.0",
 		"eslint-config-neon": "^0.1.33",
-		"eslint-config-prettier": "^8.5.0",
-		"eslint-plugin-import": "^2.26.0",
 		"eslint-plugin-typescript-sort-keys": "^2.1.0",
 		"husky": "^8.0.1",
 		"is-ci": "^3.0.1",
