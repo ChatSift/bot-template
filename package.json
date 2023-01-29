@@ -1,7 +1,7 @@
 {
 	"name": "template",
 	"description": "owo",
-	"packageManager": "yarn@3.2.1",
+	"packageManager": "yarn@3.3.1",
 	"main": "./dist/index.js",
 	"version": "0.1.0-dev",
 	"type": "module",
@@ -25,25 +25,25 @@
 		"node": ">=16.9.0"
 	},
 	"devDependencies": {
-		"@commitlint/cli": "^17.1.2",
-		"@commitlint/config-angular": "^17.1.0",
-		"@types/node": "^16.18.2",
-		"@typescript-eslint/eslint-plugin": "^5.41.0",
-		"@typescript-eslint/parser": "^5.41.0",
-		"@vitest/coverage-c8": "^0.24.3",
-		"eslint": "^8.26.0",
-		"eslint-config-neon": "^0.1.39",
+		"@commitlint/cli": "^17.4.2",
+		"@commitlint/config-angular": "^17.4.2",
+		"@types/node": "^16.18.11",
+		"@typescript-eslint/eslint-plugin": "^5.49.0",
+		"@typescript-eslint/parser": "^5.49.0",
+		"@vitest/coverage-c8": "^0.28.3",
+		"eslint": "^8.33.0",
+		"eslint-config-neon": "^0.1.40",
 		"eslint-plugin-typescript-sort-keys": "^2.1.0",
-		"husky": "^8.0.1",
+		"husky": "^8.0.3",
 		"is-ci": "^3.0.1",
-		"prettier": "^2.7.1",
+		"prettier": "^2.8.3",
 		"prettier-eslint": "^15.0.1",
-		"typescript": "^4.8.4",
-		"vitest": "^0.24.3"
+		"typescript": "^4.9.4",
+		"vitest": "^0.28.3"
 	},
 	"dependencies": {
 		"reflect-metadata": "^0.1.13",
-		"tslib": "^2.4.0",
+		"tslib": "^2.5.0",
 		"tsyringe": "^4.7.0"
 	}
 }
