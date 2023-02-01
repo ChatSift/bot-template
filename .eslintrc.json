@@ -13,11 +13,10 @@
 	"rules": {
 		"@typescript-eslint/ban-types": "off",
 		"@typescript-eslint/no-extraneous-class": "off",
+		"import/extensions": "error",
 		"curly": ["error", "all"],
-		"eqeqeq": ["error", "always", { "null": "ignore" }],
 		"no-eq-null": "off",
 		"no-unused-vars": "off",
-		"import/extensions": "off",
 		"no-useless-constructor": "off",
 		"unicorn/require-post-message-target-origin": "off"
 	}

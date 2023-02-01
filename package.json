@@ -1,23 +1,28 @@
 {
-	"name": "template",
-	"description": "owo",
+	"name": "@chatsift/somebot",
+	"description": "This does cool stuff",
 	"packageManager": "yarn@3.3.1",
-	"main": "./dist/index.js",
-	"version": "0.1.0-dev",
-	"type": "module",
+	"private": true,
+	"version": "0.0.0",
+	"workspaces": [
+		"packages/*"
+	],
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/chatsift/template.git"
+		"url": "https://github.com/chatsift/bot-template.git"
 	},
 	"bugs": {
-		"url": "https://github.com/chatsift/template/issues"
+		"url": "https://github.com/chatsift/bot-template/issues"
 	},
-	"homepage": "https://github.com/chatsift/template",
+	"homepage": "https://github.com/chatsift/bot-template",
 	"scripts": {
-		"lint": "eslint src --ext .ts && prettier --check --plugin-search-dir=. .",
-		"build": "tsc",
-		"test": "vitest run",
+		"lint": "turbo run lint && prettier --check --plugin-search-dir=. .",
+		"build": "turbo run build",
 		"format": "prettier --write --plugin-search-dir=. .",
+		"prisma": "dotenv -e .env prisma",
+		"deploy-commands": "rimraf ./packages/bot/dist && turbo run --no-cache build --filter ./packages/bot && dotenv -e .env -v DEPLOY=true -- node --enable-source-maps ./packages/bot/dist/index.js",
+		"start-bot": "dotenv -e .env -- node --enable-source-maps ./packages/bot/dist/index.js",
+		"start-api": "dotenv -e .env -- node --enable-source-maps ./packages/api/dist/index.js",
 		"prepare": "is-ci || husky install",
 		"update": "yarn upgrade-interactive"
 	},
@@ -28,9 +33,9 @@
 		"@commitlint/cli": "^17.4.2",
 		"@commitlint/config-angular": "^17.4.2",
 		"@types/node": "^16.18.11",
-		"@typescript-eslint/eslint-plugin": "^5.49.0",
-		"@typescript-eslint/parser": "^5.49.0",
-		"@vitest/coverage-c8": "^0.28.3",
+		"@typescript-eslint/eslint-plugin": "^5.50.0",
+		"@typescript-eslint/parser": "^5.50.0",
+		"dotenv-cli": "^7.0.0",
 		"eslint": "^8.33.0",
 		"eslint-config-neon": "^0.1.40",
 		"eslint-plugin-typescript-sort-keys": "^2.1.0",
@@ -38,12 +43,9 @@
 		"is-ci": "^3.0.1",
 		"prettier": "^2.8.3",
 		"prettier-eslint": "^15.0.1",
-		"typescript": "^4.9.4",
-		"vitest": "^0.28.3"
-	},
-	"dependencies": {
-		"reflect-metadata": "^0.1.13",
-		"tslib": "^2.5.0",
-		"tsyringe": "^4.7.0"
+		"prisma": "^4.9.0",
+		"rimraf": "^4.1.2",
+		"turbo": "~1.6.3",
+		"typescript": "^4.9.5"
 	}
 }

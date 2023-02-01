@@ -1,0 +1,38 @@
+version: '3.7'
+
+services:
+  postgres:
+    image: postgres:12-alpine
+    environment:
+      POSTGRES_USER: 'somebot'
+      POSTGRES_PASSWORD: 'admin'
+      POSTGRES_DB: 'somebot'
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+    restart: unless-stopped
+    ports:
+      - 127.0.0.1:${DATABASE_PORT}:5432
+    healthcheck:
+      test: ['CMD-SHELL', 'pg_isready -U somebot']
+      interval: 10s
+      timeout: 5s
+
+  bot:
+    image: chatsift/somebot
+    build:
+      context: ./
+      dockerfile: ./Dockerfile
+    env_file:
+      - ./.env
+    environment:
+      DATABASE_URL: 'postgresql://somebot:admin@postgres:5432/somebot'
+    restart: unless-stopped
+    volumes:
+      - ./logs:/usr/somebot/logs
+    depends_on:
+      - postgres
+    command: ['node', '--enable-source-maps', '--no-warnings', './packages/bot/dist/index.js']
+
+volumes:
+  postgres-data:
+    name: 'somebot-postgres-data'
